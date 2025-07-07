@@ -19,6 +19,7 @@
 1. Clone the repository
 ```sh
 git clone https://github.com/caitlin18933/card-match.git
+cd card-match
 ```
 
 2. Install packages
