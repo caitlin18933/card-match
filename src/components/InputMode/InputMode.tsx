@@ -5,7 +5,6 @@ import { useDispatch } from 'react-redux';
 import { setCards } from '../../redux/gameSlice';
 import { generateCards } from '../../utils/generateCards';
 import { InputModeWrapper, DecrementButton, IncrementButton, StyledInput, StyledNumberField } from './InputMode.styles';
-import { RootState } from '../../redux/store';
 
 // Choices:
 // - The number of pairs is between 2 and 100.
