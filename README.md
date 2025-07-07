@@ -1,4 +1,6 @@
 # Match Up
+Match Up is a card matching memory game where users control the difficulty by increasing or decreasing the number of cards they need to match in order to win. A user wins the game when they have successfully matched all of the cards. 
+
 <div>
 <strong>Built with<strong>
 <br/>
@@ -15,7 +17,11 @@
 <img src="https://img.shields.io/badge/node-v20.19.3-20B2AA?style=for-the-badge">
 <img src="https://img.shields.io/badge/npm-v10.8.2-20B2AA?style=for-the-badge"/>
 
+Use [nvm](https://github.com/nvm-sh/nvm) to manage Node and npm version
+
 ### Setting up
+In your terminal, complete the following steps:
+
 1. Clone the repository
 ```sh
 git clone https://github.com/caitlin18933/card-match.git
