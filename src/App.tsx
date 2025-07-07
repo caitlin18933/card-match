@@ -38,7 +38,7 @@ function App() {
 
               <CardGrid $columns={columns}>
                 {cards.map((card, index) => (
-                  <Card key={index} value={card} />
+                  <Card key={index} value={card} index={index} />
                 ))}
               </CardGrid>
 

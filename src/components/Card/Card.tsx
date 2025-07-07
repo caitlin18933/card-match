@@ -11,9 +11,10 @@ import { RootState } from '../../redux/store';
 
 interface CardProps {
     value: string;
+    index: number;
 }
 
-const Card: React.FC<CardProps> = ({ value }) => {
+const Card: React.FC<CardProps> = ({ value, index }) => {
     const dispatch = useDispatch();
     const { activeCards, matchedCards, turnCounter, cards } = useSelector((state: RootState) => state.game);
 
@@ -48,8 +49,20 @@ const Card: React.FC<CardProps> = ({ value }) => {
     return (
         // Design choice: by splitting the front and back of the card, we can hide the number value until the card is flipped.
         // This is to prevent the user from seeing the value or reading it using dev tools before clicking the card.
-        <CardWrapper onClick={isClickable ? handleCardClick : undefined} $isClickable={isClickable}>
-            <CardBack $isFlipped={isFlipped} $isMatched={matchedCards.includes(value)}>
+        <CardWrapper
+            onClick={isClickable ? handleCardClick : undefined}
+            $isClickable={isClickable}
+            tabIndex={isClickable ? 0 : -1}
+            role="button"
+            aria-pressed={isFlipped}
+            aria-label={`Card ${index + 1}`}
+            onKeyDown={(e) => {
+                if (isClickable && (e.key === 'Enter' || e.key === ' ')) {
+                    handleCardClick();
+                }
+            }}
+        >
+            <CardBack $isFlipped={isFlipped} $isMatched={matchedCards.includes(value)} aria-live='assertive'>
                 {isFlipped ? value.split('-')[0] : null}
             </CardBack>
             <CardFront $isFlipped={isFlipped} />
